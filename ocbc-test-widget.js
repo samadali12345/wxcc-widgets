@@ -5,8 +5,8 @@
  *
  * Layout inputs (see the desktop layout JSON):
  *   properties.task      <- $STORE.agentContact.taskSelected
+ *   properties.agentName <- $STORE.agent.agentName
  *   properties.darkMode  <- $STORE.app.darkMode
- *   attributes.agent-name <- $STORE.agent.agentName
  */
 (function () {
   var TAG = "ocbc-test-widget";
@@ -58,6 +58,9 @@
     set task(value) { this._task = value; this._updates++; this.render(); }
     get task() { return this._task; }
 
+    set agentName(value) { this._agentName = value; this.render(); }
+    get agentName() { return this._agentName; }
+
     set darkMode(value) { this._dark = value === true || value === "true"; this.render(); }
     get darkMode() { return this._dark; }
 
@@ -100,7 +103,7 @@
         "<div class='muted'>Loaded at " + esc(this._loadedAt.toLocaleTimeString()) +
         " | task updates received: " + this._updates + "</div>" +
         "<table>" +
-        "<tr><td>Agent</td><td>" + esc(this.getAttribute("agent-name")) + "</td></tr>" +
+        "<tr><td>Agent</td><td>" + esc(this._agentName || this.getAttribute("agent-name")) + "</td></tr>" +
         (t
           ? "<tr><td>Caller number (ANI)</td><td>" + esc(ani) + "</td></tr>" +
             "<tr><td>Dialled number</td><td>" + esc(dnis) + "</td></tr>" +

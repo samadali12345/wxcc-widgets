@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OCBC iframe test</title>
+<style>
+  body { margin: 0; padding: 16px; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f1f1f; }
+  .ok { display: inline-block; padding: 2px 8px; border-radius: 10px; background: #1b7f3b; color: #fff; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h2>OCBC iframe test <span class="ok">Loaded</span></h2>
+  <p>If you can read this inside Agent Desktop, custom tabs in the panel work.</p>
+  <p id="t"></p>
+  <script>document.getElementById("t").textContent = "Loaded at " + new Date().toLocaleTimeString();</script>
+</body>
+</html>
